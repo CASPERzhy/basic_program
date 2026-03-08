@@ -135,7 +135,7 @@ void playGame() {
         attempt++;
 
         if (guess == target) {
-            cout << "\nGRATULACJE! Trafiles " << attempt << " probie!" << endl;
+            cout << "\nGRATULACJE! Trafiles po" << attempt << " probie!" << endl;
             cout << "Podaj swoje imie: ";
             string name;
             cin >> name;
@@ -176,3 +176,4 @@ int main() {
     }
     return 0;
 }
+
