@@ -28,6 +28,33 @@ void validateInput() {
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
 }
 
+void randomChallenge() {
+    if (rand() % 5 != 0) return; 
+
+    int type = rand() % 2;
+    if (type == 0) {
+        cout << "\nIle masz palcow na rece? ";
+        string answer;
+        cin >> answer;
+        if (answer == "5") {
+            cout << ">>> Zapomniales chyba co masz robic?" << endl;
+            cout << "Nacisnij Enter, aby wrocic do gry...";
+            validateInput();
+            cin.get();
+        }
+    } else {
+        cout << "\n2+2=? ";
+        string answer;
+        cin >> answer;
+        if (answer == "4") {
+            cout << ">>> Masz zgadywac liczbe, czlowiek..." << endl;
+            cout << "Nacisnij Enter, aby wrocic do gry...";
+            validateInput();
+            cin.get();
+        }
+    }
+}
+
 void drawHeader(string title) {
     cout << "========================================" << endl;
     cout << "      " << title << endl;
@@ -135,7 +162,7 @@ void playGame() {
         attempt++;
 
         if (guess == target) {
-            cout << "\nGRATULACJE! Trafiles po " << attempt << " probie!" << endl;
+            cout << "\nGRATULACJE! Trafiles w " << attempt << " probie!" << endl;
             cout << "Podaj swoje imie: ";
             string name;
             cin >> name;
@@ -149,6 +176,7 @@ void playGame() {
             break;
         } else {
             hint = getRandomMessage(guess < target);
+            randomChallenge();
         }
     }
 }
@@ -176,5 +204,3 @@ int main() {
     }
     return 0;
 }
-
-
